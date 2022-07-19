@@ -5,6 +5,15 @@
   font-family: "Raleway", sans-serif;
 }
 
+.home-div {
+  margin: auto;
+  text-align: center;
+  padding-top: 5rem;
+}
+.home-div h1 {
+  font-size: 5rem;
+}
+
 /* Navbar */
 .nav-div {
   width: 100%;
