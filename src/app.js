@@ -14,6 +14,14 @@ app.get("/", async (req, res) => {
   res.render("index");
 });
 
+app.get("/login", async (req, res) => {
+  res.render("login");
+});
+
+app.get("/register", async (req, res) => {
+  res.render("register");
+});
+
 app.listen(port, () => {
   console.log(`Server start running on port ${port}.`);
 });
