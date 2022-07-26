@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 require("./db/connect");
 const hbs = require("hbs");
+const bcrypt = require("bcryptjs");
 
 const Register = require("../models/register.model");
 
