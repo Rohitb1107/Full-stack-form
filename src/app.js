@@ -21,6 +21,8 @@ app.get("/", async (req, res) => {
   res.render("index");
 });
 
+// Register part
+
 app.get("/register", async (req, res) => {
   res.render("register");
 });
@@ -39,7 +41,7 @@ app.post("/register", async (req, res) => {
       });
 
       const addUser = await registerUser.save();
-      res.status(201).render("index");
+      res.status(201).render("login");
     } else {
       res.send("passwords are not matching");
     }
@@ -48,8 +50,27 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// Login Part
+
 app.get("/login", async (req, res) => {
   res.render("login");
+});
+
+app.post("/login", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const userEmail = await Register.findOne({ email: email });
+
+    if (userEmail.password === password) {
+      res.status(201).render("index");
+    } else {
+      res.send("Something went wrong!");
+    }
+  } catch (err) {
+    res.status(400).send(err);
+  }
 });
 
 app.listen(port, () => {
